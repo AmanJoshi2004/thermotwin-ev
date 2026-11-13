@@ -1,0 +1,23 @@
+# data and results (large; each person downloads or regenerates them)
+data/*
+!data/README.md
+runs/*
+!runs/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# secrets
+kaggle.json
+.env

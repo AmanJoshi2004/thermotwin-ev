@@ -1,0 +1,23 @@
+# docker compose up --build
+# API:       http://localhost:8000/docs
+# Dashboard: http://localhost:8501
+services:
+  api:
+    build: .
+    environment:
+      THERMOTWIN_RUN: runs/latest
+      THERMOTWIN_MODEL: tnn
+    volumes:
+      - ./runs:/app/runs
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+
+  dashboard:
+    build: .
+    command: streamlit run app/dashboard.py --server.address 0.0.0.0 --server.port 8501
+    volumes:
+      - ./runs:/app/runs
+      - ./data:/app/data
+    ports:
+      - "8501:8501"
